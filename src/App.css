@@ -16,4 +16,5 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
   width: 50vw;
+  min-width: 500px;
 }

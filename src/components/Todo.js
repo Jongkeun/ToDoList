@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 const Container = styled.div`
   margin: 5px 1px;
-  padding: 2px;
   width: 90%;
   border: 1px white solid;
 `;

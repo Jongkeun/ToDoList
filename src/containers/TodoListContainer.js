@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Title from "../components/Title";
 import Todo from "../components/Todo";
-import AddButton from "../components/AddButton";
+import TodoInput from "../components/TodoInput";
 
 const generateID = () => {
   return (
@@ -36,16 +36,27 @@ class TodoListContainer extends Component {
     this.setState({ todos: updated });
   };
 
+  addTodo = content => {
+    const { todos } = this.state;
+    this.setState({
+      todos: todos.concat({
+        id: generateID(),
+        isDone: false,
+        content: content,
+      }),
+    });
+  };
+
   render() {
     const list = this.state.todos;
     return (
       <div className="app-container">
         <section className="app-section">
           <Title title={"todo list"} />
+          <TodoInput addTodo={this.addTodo} />
           {list.map(todo => (
             <Todo key={todo.id} todo={todo} onChange={this.toggleCheckbox} />
           ))}
-          <AddButton></AddButton>
         </section>
       </div>
     );
