@@ -17,6 +17,7 @@ const TodoInput = ({ addTodo }) => {
   const handleKyeDown = event => {
     if (event.key === "Enter") {
       addTodo(event.target.value);
+      event.target.value = "";
     }
   };
   return (
