@@ -8,10 +8,11 @@ const Container = styled.div`
   width: 90%;
   border: 1px white solid;
 `;
-const Todo = ({ isDone, content }) => {
-  const clickCheckbox = event => {
-    console.log(event.target.checked);
+const Todo = ({ todo, onChange }) => {
+  const clickCheckbox = () => {
+    onChange(todo);
   };
+  const { content, isDone } = todo;
   return (
     <Container>
       <input type="checkbox" checked={isDone} onChange={clickCheckbox} />
@@ -20,12 +21,10 @@ const Todo = ({ isDone, content }) => {
   );
 };
 
-Todo.defaultProps = {
-  isDone: false,
-};
+Todo.defaultProps = {};
 
 Todo.propTypes = {
-  isDone: PropTypes.bool,
-  content: PropTypes.string,
+  todo: PropTypes.object,
+  onChange: PropTypes.func,
 };
 export default Todo;
