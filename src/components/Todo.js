@@ -28,6 +28,7 @@ const Label = styled.label`
   transition: color 0.4s;
   flex: none;
   word-break: break-all;
+  text-decoration: ${props => (props.isDone ? "line-through" : "none")};
 `;
 const Todo = ({ todo, checkBoxChanged, deleteTodo }) => {
   const clickCheckbox = () => {
@@ -43,7 +44,7 @@ const Todo = ({ todo, checkBoxChanged, deleteTodo }) => {
   return (
     <Container>
       <Toggle type="checkbox" checked={isDone} onChange={clickCheckbox} />
-      <Label>{content}</Label>
+      <Label isDone={isDone}>{content}</Label>
       <DeleteButton onClick={clickDeleteButton} />
     </Container>
   );
