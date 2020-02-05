@@ -47,6 +47,11 @@ class TodoListContainer extends Component {
     });
   };
 
+  deleteTodo = id => {
+    let updated = this.state.todos.filter(element => element.id !== id);
+    this.setState({ todos: updated });
+  };
+
   render() {
     const list = this.state.todos;
     return (
@@ -55,7 +60,12 @@ class TodoListContainer extends Component {
           <Title title={"todo list"} />
           <TodoInput addTodo={this.addTodo} />
           {list.map(todo => (
-            <Todo key={todo.id} todo={todo} onChange={this.toggleCheckbox} />
+            <Todo
+              key={todo.id}
+              todo={todo}
+              checkBoxChanged={this.toggleCheckbox}
+              deleteTodo={this.deleteTodo}
+            />
           ))}
         </section>
       </div>
