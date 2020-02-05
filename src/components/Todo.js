@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import DeleteButton from "./DeleteButton";
 
 const Container = styled.div`
+  display: flex;
   margin: 5px 1px;
   width: 90%;
   border: 1px white solid;
@@ -12,6 +13,20 @@ const Container = styled.div`
       visibility: visible;
     }
   }
+`;
+
+const Toggle = styled.input`
+  height: 40px;
+  margin: auto 2px;
+  text-align: center;
+  width: 40px;
+`;
+const Label = styled.label`
+  line-height: 1.2;
+  padding: 15px 15px 15px 15px;
+  transition: color 0.4s;
+  flex: none;
+  word-break: break-all;
 `;
 const Todo = ({ todo, checkBoxChanged, deleteTodo }) => {
   const clickCheckbox = () => {
@@ -26,8 +41,8 @@ const Todo = ({ todo, checkBoxChanged, deleteTodo }) => {
 
   return (
     <Container>
-      <input type="checkbox" checked={isDone} onChange={clickCheckbox} />
-      {content}
+      <Toggle type="checkbox" checked={isDone} onChange={clickCheckbox} />
+      <Label>{content}</Label>
       <DeleteButton onClick={clickDeleteButton} />
     </Container>
   );

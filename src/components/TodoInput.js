@@ -4,10 +4,14 @@ import styled from "styled-components";
 import Todo from "./Todo";
 
 const TextInput = styled.input`
-  width: 90%;
-  margin: 0;
-  font-size: 1.2em;
-  border: 1px white solid;
+  -webkit-font-smoothing: antialiased;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.03) 0 -2px 1px inset;
+  box-sizing: border-box;
+  font-size: 24px;
+  line-height: 1.4em;
+  padding: 16px 16px 16px 60px;
+  width: 100%;
   &::placeholder {
     opacity: 0.5;
   }
