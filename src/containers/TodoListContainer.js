@@ -14,15 +14,7 @@ const generateID = () => {
 
 class TodoListContainer extends Component {
   state = {
-    todos: [
-      { id: generateID(), isDone: false, content: "내용1" },
-      { id: generateID(), isDone: false, content: "내용2" },
-      { id: generateID(), isDone: false, content: "내용3" },
-      { id: generateID(), isDone: false, content: "내용4" },
-      { id: generateID(), isDone: false, content: "내용5" },
-      { id: generateID(), isDone: false, content: "내용6" },
-      { id: generateID(), isDone: false, content: "내용7" },
-    ],
+    todos: [],
   };
 
   toggleCheckbox = todo => {

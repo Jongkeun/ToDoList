@@ -21,6 +21,7 @@ const Toggle = styled.input`
   text-align: center;
   width: 40px;
 `;
+
 const Label = styled.label`
   line-height: 1.2;
   padding: 15px 15px 15px 15px;

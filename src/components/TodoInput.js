@@ -18,8 +18,19 @@ const TextInput = styled.input`
 `;
 
 const TodoInput = ({ addTodo }) => {
-  const handleKyeDown = event => {
-    if (event.key === "Enter") {
+  const handleKeyDown = event => {
+    // 왜 enter 입력했을때 두번 호출되는지 알아내야함
+    // event.preventDefault();
+    // event.stopPropagation();
+    // console.log(event.target.value);
+    // if (event.key === "Enter") {
+    //   console.log(event.target.value);
+    //   // addTodo(event.target.value);
+    //   // event.target.value = "";
+    // }
+  };
+  const handleKeyPress = event => {
+    if (event.charCode === 13) {
       addTodo(event.target.value);
       event.target.value = "";
     }
@@ -27,7 +38,8 @@ const TodoInput = ({ addTodo }) => {
   return (
     <TextInput
       type="text"
-      onKeyDown={handleKyeDown}
+      onKeyDown={handleKeyDown}
+      onKeyPress={handleKeyPress}
       placeholder={"What needs to be done?"}
     />
   );
