@@ -16,6 +16,11 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
   width: 50vw;
-  min-width: 300px;
-  max-width: 600px;
+  max-width: 800px;
+}
+
+@media screen and (max-width: 800px) {
+  .app-section {
+    width: 100vw;
+  }
 }
