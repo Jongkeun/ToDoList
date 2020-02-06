@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Title from "../components/Title";
 import Todo from "../components/Todo";
 import TodoInput from "../components/TodoInput";
+import { setStorage, getStorage } from "../uitls/storage";
 
 const generateID = () => {
   return (
@@ -13,10 +14,16 @@ const generateID = () => {
 };
 
 class TodoListContainer extends Component {
-  state = {
-    todos: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: JSON.parse(getStorage("todos")) || [],
+    };
+  }
 
+  componentDidUpdate() {
+    setStorage("todos", JSON.stringify(this.state.todos));
+  }
   toggleCheckbox = todo => {
     let updated = this.state.todos.map(element => {
       if (element.id === todo.id) {
@@ -30,12 +37,13 @@ class TodoListContainer extends Component {
 
   addTodo = content => {
     const { todos } = this.state;
+    const updated = todos.concat({
+      id: generateID(),
+      isDone: false,
+      content: content,
+    });
     this.setState({
-      todos: todos.concat({
-        id: generateID(),
-        isDone: false,
-        content: content,
-      }),
+      todos: updated,
     });
   };
 
@@ -46,6 +54,7 @@ class TodoListContainer extends Component {
 
   render() {
     const list = this.state.todos;
+    console.log(list);
     return (
       <div className="app-container">
         <section className="app-section">
