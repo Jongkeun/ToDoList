@@ -3,12 +3,12 @@ body {
   padding: 0;
 }
 .app-container {
-  background-color: #f4f9e9;
+  background-color: #eef0eb;
 }
 
 .app-section {
   margin: auto;
-  background-color: #153243;
+  background-color: #284b63;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

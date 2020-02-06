@@ -24,6 +24,7 @@ class TodoListContainer extends Component {
   componentDidUpdate() {
     setStorage("todos", JSON.stringify(this.state.todos));
   }
+
   toggleCheckbox = todo => {
     let updated = this.state.todos.map(element => {
       if (element.id === todo.id) {
@@ -54,7 +55,6 @@ class TodoListContainer extends Component {
 
   render() {
     const list = this.state.todos;
-    console.log(list);
     return (
       <div className="app-container">
         <section className="app-section">

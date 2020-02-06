@@ -10,6 +10,7 @@ const Container = styled.div`
   text-align: center;
   text-rendering: optimizelegibility;
   width: 100%;
+  color: #f4f9e9;
 `;
 const Title = ({ title }) => {
   return <Container>{title}</Container>;
