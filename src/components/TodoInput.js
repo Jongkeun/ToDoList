@@ -25,14 +25,16 @@ const TodoInput = ({ addTodo }) => {
     // console.log(event.target.value);
     // if (event.key === "Enter") {
     //   console.log(event.target.value);
-    //   // addTodo(event.target.value);
-    //   // event.target.value = "";
+    //   addTodo(event.target.value);
+    //   event.target.value = "";
     // }
   };
   const handleKeyPress = event => {
     if (event.charCode === 13) {
-      addTodo(event.target.value);
-      event.target.value = "";
+      if (event.target.value !== "") {
+        addTodo(event.target.value);
+        event.target.value = "";
+      }
     }
   };
   return (
