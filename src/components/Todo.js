@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import DeleteButton from "./DeleteButton";
+import Checkbox from "react-simple-checkbox";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ const Container = styled.div`
   }
 `;
 
-const Toggle = styled.input`
+const Toggle = styled.div`
   height: 40px;
   margin: auto 2px;
   text-align: center;
@@ -43,7 +44,15 @@ const Todo = ({ todo, checkBoxChanged, deleteTodo }) => {
 
   return (
     <Container>
-      <Toggle type="checkbox" checked={isDone} onChange={clickCheckbox} />
+      <Toggle>
+        <Checkbox
+          checked={isDone}
+          size={3}
+          color={"#153243"}
+          tickAnimationDuration={100}
+          onChange={clickCheckbox}
+        />
+      </Toggle>
       <Label isDone={isDone}>{content}</Label>
       <DeleteButton onClick={clickDeleteButton} />
     </Container>
