@@ -1,4 +1,8 @@
 # ToDoList
 To do list with react
 
-https://codepen.io/hotate17/pen/oYKMaM
+### Applied stacks
+
+- styled-component
+- Proptypes
+- router
